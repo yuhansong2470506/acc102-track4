@@ -47,7 +47,7 @@ filtered_df = df[
 ]
 
 # ---------------------- 数据概览 ----------------------
-st.subheader("<span class="emoji emoji1f4c8"></span> 数据概览")
+st.subheader('<span class="emoji emoji1f4c8"></span> 数据概览')
 
 # 关键指标卡片
 col1, col2, col3 = st.columns(3)
