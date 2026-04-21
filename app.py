@@ -28,7 +28,7 @@ selected_cities = st.sidebar.multiselect(
     options=city_list,
     default=city_list[0]
 )
->
+
 # 日期范围筛选
 min_date = df["Date"].min()
 max_date = df["Date"].max()
