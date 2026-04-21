@@ -1,92 +1,99 @@
 # Air Quality Tool (ACC102 Track4)
-空气质量分析与交互式可视化工具
+AIR QUALITY ANALIYSIS AND INTERACTIVE VISUALIZATION TOOLS
 
 ---
 
 ## 1. Problem & User
-### 背景与问题
-随着城市化进程加快，空气污染问题日益受到关注。但普通用户往往难以快速、直观地理解复杂的空气质量数据，无法清晰了解所在地区的空气质量状况、污染物分布及变化趋势。
+### BACKGROUND AND PROBLEMS
+With the acceleration of urbanization, the problem of air pollution has attracted more and more attention, but it is often difficult for ordinary users to quickly and intuitively understand complex air quality data and cannot clearly understand the distribution and change trends of air quality pollutants in the region.
 
-### 目标用户
--关注空气质量的普通市民，希望了解日常出行的空气质量情况
--环境相关专业的学生或研究人员，需要快速的数据分析与可视化工具
--对数据可视化感兴趣的初学者，可通过该工具学习Python与Streamlit应用开发
 
-### 工具价值
-通过交互式界面，让用户无需专业代码基础，即可快速查看、筛选空气质量数据，生成可视化图表，并获得直观的分析结论，帮助用户更高效地理解和使用空气质量数据。
+### TARGET USERS
+-General citizens who care about air quality, hoping to understand air quality conditions for their daily travel.
+
+-Students or researchers in environmental-related fields who need quick data analysis and visualization tools.
+
+-Beginners interested in data visualization who can learn Python & Streamlit application development through this tool.
+
+### TOOL VALUE
+Through an interactive interface, users can quickly view, filter air quality data, generate visual charts, and obtain intuitive analysis conclusions without professional coding basics. This helps users better understand and use air quality data more efficiently.
 
 ---
 
 ## 2. Data
-### 数据来源
-本项目使用的是公开的城市空气质量监测数据集，数据来自中国环境监测总站公开的历史空气质量数据，已整理为CSV格式文件。
+### DATA SOURCE
+The dataset used in this project is a public urban air quality monitoring dataset. The data comes from historical air quality data publicly released by the China National Environmental Monitoring Center and sorted into CSV format files.
 
-### 数据时间范围
-数据覆盖2023年1月1日至2023年12月31日，包含完整的年度空气质量监测数据。
+### DATA TIME RANGE
+The data covers from January 1, 2023 to December 31, 2023, including complete annual air quality monitoring data.
 
-### 关键字段说明
-| 字段名 | 说明 |
-|--------|------|
-| `Date` | 监测日期（YYYY-MM-DD格式） |
-| `City` | 监测城市名称 |
-| `AQI` | 空气质量指数，数值越高代表污染越严重 |
-| `PM2.5` | 细颗粒物浓度（μg/m³） |
-| `PM10` | 可吸入颗粒物浓度（μg/m³） |
-| `SO2` | 二氧化硫浓度（μg/m³） |
-| `NO2` | 二氧化氮浓度（μg/m³） |
-| `CO` | 一氧化碳浓度（mg/m³） |
-| `O3` | 臭氧浓度（μg/m³） |
-| `Quality_Level` | 空气质量等级（优/良/轻度污染/中度污染/重度污染/严重污染） |
+### Key Field Description
+| Field Name | Description |
+|-----------|-----------|
+| `Date` | Monitoring date (in YYYY-MM-DD format) |
+| `City` | Name of the monitored city |
+| `AQI` | Air Quality Index; higher values indicate more severe pollution |
+| `PM2.5` | Fine particulate matter concentration (μg/m³) |
+| `PM10` | Inhalable particulate matter concentration (μg/m³) |
+| `SO2` | Sulfur dioxide concentration (μg/m³) |
+| `NO2` | Nitrogen dioxide concentration (μg/m³) |
+| `CO` | Carbon monoxide concentration (mg/m³) |
+| `O3` | Ozone concentration (μg/m³) |
+| `Quality_Level` | Air quality grade (Good / Moderate / Light Pollution / Moderate Pollution / Heavy Pollution / Severe Pollution) |
 
-### 数据预处理
-- 去除了缺失值和异常值（如超出正常监测范围的数值）
-- 对日期格式进行了标准化处理，方便时间序列分析
-- 新增了季度、月份字段，用于时间维度的分组统计
+### Data Preprocessing
+- Removed missing values and outliers (values exceeding the normal monitoring range)
+- Standardized the date format to facilitate time series analysis
+- Added season and month fields for grouped statistics in the time dimension
     
 ---
 
 ## 3. Methods
-本项目采用Python语言开发，主要使用以下工具与方法：
+This project is developed using Python, and the main tools and methods used are as follows:
 
-### 数据处理
-- 使用`pandas`库进行数据清洗、筛选、分组与统计分析，包括缺失值处理、数据类型转换、多维度数据聚合等操作。
-  
-### 数据可视化
-- 使用`matplotlib`与`plotly`库实现多种交互式可视化图表，包括：
-  - 折线图：展示AQI与主要污染物的时间变化趋势
-  - 柱状图：对比不同城市、不同月份的平均空气质量指数
-  - 饼图：展示全年不同空气质量等级的占比分布
-  - 箱线图：分析不同季节污染物浓度的分布差异
-    
-### 交互式应用开发
-- 使用`Streamlit`库搭建交互式Web应用，实现以下功能：
-   - 城市与时间范围筛选
-   - 污染物与指标的动态选择
-   - 一键生成可视化图表与统计摘要
-   - 响应式界面，支持在不同设备上访问
+### Data Processing
+- Used the `pandas` library for data cleaning, filtering, grouping, and statistical analysis, including missing value handling, data type conversion, multi-dimensional data aggregation, and other operations.
+
+ ### Data Visualization
+- Used the `matplotlib` and `plotly` libraries to implement various interactive visual charts, including:
+- Line chart: showing the time trend of AQI and major pollutants
+- Bar chart: comparing the average air quality index across different cities and months
+- Pie chart: showing the proportion distribution of different air quality levels throughout the year
+- Box plot: analyzing the distribution differences of pollutant concentrations in different seasons
+ 
+ ### Interactive Application Development
+- Used the `streamlit` library to build an interactive web application with the following functions:
+- Filtering by city and time range
+- Dynamic selection of pollutants and indicators
+- One-click generation of visual charts and statistical summaries
+- Responsive interface, supporting access on different devices
      
  ---
  
 ## 4. Key Findings
-通过对数据集的分析，得到以下核心结论：
-1.  **时间趋势特征**：AQI指数呈现明显的季节性变化，冬季（12月-2月）空气质量最差，夏季（6月-8月）空气质量最优，主要原因是冬季供暖带来的污染物排放增加，以及夏季强对流天气对污染物的扩散作用。
-2.  **污染物分布**：PM2.5是影响空气质量的首要污染物，在重度污染天气中，PM2.5超标天数占比超过70%；O3污染则在夏季午后时段更为突出，成为夏季的主要污染物。
-3.  **城市对比**：不同城市的空气质量差异显著，工业城市的平均AQI指数明显高于旅游城市，PM10浓度的差异是造成城市间空气质量差距的重要因素。
-4.  **等级占比**：全年空气质量为“优”和“良”的天数占比约为65%，轻度污染及以上天数占比约为35%，其中重度污染天数主要集中在1月和12月。
+Through the analysis of the dataset, the following core conclusions are drawn:
+
+1.  **Time Trend Characteristics**: The AQI index shows obvious seasonal variations. Air quality is the worst in winter (December-February) and the best in summer (June-August). The main reasons are increased pollutant emissions from winter heating and the diffusion effect of strong convective weather on pollutants in summer.
+
+2.  **Pollutant Distribution**: PM2.5 is the primary pollutant affecting air quality, accounting for more than 70% of days exceeding standards during heavy pollution events. Ozone (O₃) is more prominent in the afternoon during summer and becomes the main pollutant in summer.
+
+3.  **City Comparison**: Air quality varies significantly across different cities. The average AQI of industrial cities is significantly higher than that of tourist cities. Differences in PM10 concentrations are an important factor leading to the air quality gap between cities.
+
+4.  **Grade Proportion**: Days with "Excellent" and "Good" air quality account for about 65% of the whole year, while days with light pollution or above account for about 35%. Among them, heavy pollution days are mainly concentrated in January and December.
   
 ---
 
 ## 5. How to Run
-### 1. 环境准备
-确保你的电脑已安装 Python 3.8 及以上版本，然后通过以下命令安装所需依赖库：
+### 1. Environment Setup
+>Ensure your computer has Python 3.8 or higher installed, then run the following command to install the required dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2. 本地运行
-在项目根目录下执行以下命令，启动 Streamlit 应用：
+### 2. RUN the APP LOCALLY
+Execute the following command in the project root directory to launch the Streamlit application：
 ```bash
 streamlit run app.py
 ```
 ## 6. Product Link / Demo
-- Streamlit App 链接：`https://acc102-track4-jzbqjiksapppzswzdy89flt.streamlit.app/`
+- Streamlit App LINK：`https://acc102-track4-jzbqjiksapppzswzdy89flt.streamlit.app/`
