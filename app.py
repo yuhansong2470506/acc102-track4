@@ -10,7 +10,7 @@ st.set_page_config(
 )
 
 # 标题与简介
-st.title("🌬️ 空气质量分析工具 (ACC102 Track4)")
+st.title("🌬️ AIir Quality Tool (ACC102 Track4)")
 st.markdown("这是一个交互式空气质量数据分析工具，支持数据预览、趋势分析与污染物对比。")
 
 # ---------------------- 读取数据 ----------------------
