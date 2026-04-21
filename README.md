@@ -78,6 +78,15 @@
 
 ## 5. How to Run
 ### 1. 环境准备
-确保你的电脑已安装Python 3.8及以上版本，然后通过以下命令安装所需依赖库：
+确保你的电脑已安装 Python 3.8 及以上版本，然后通过以下命令安装所需依赖库：
 ```bash
 pip install -r requirements.txt
+```
+
+### 2. 本地运行
+在项目根目录下执行以下命令，启动 Streamlit 应用：
+```bash
+streamlit run app.py
+```
+## 6. Product Link / Demo
+- Streamlit App 链接：`https://acc102-track4-jzbqjiksapppzswzdy89flt.streamlit.app/`
