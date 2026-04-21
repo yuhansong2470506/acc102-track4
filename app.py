@@ -24,7 +24,7 @@ st.sidebar.header("Filter Settings")
 # City screening
 city_list = df["City"].unique()
 selected_cities = st.sidebar.multiselect(
-    "chose city",
+    "city",
     options=city_list,
     default=city_list[0]
 )
@@ -33,7 +33,7 @@ selected_cities = st.sidebar.multiselect(
 min_date = df["Date"].min()
 max_date = df["Date"].max()
 selected_dates = st.sidebar.date_input(
-    "choosebthe time range",
+    "time range",
     value=[min_date, max_date],
     min_value=min_date,
     max_value=max_date
