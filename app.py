@@ -47,7 +47,7 @@ filtered_df = df[
 ]
 
 # ---------------------- 数据概览 ----------------------
-st.subheader('<span class="emoji emoji1f4c8"></span> 数据概览')
+st.subheader('📈 数据概览')
 
 # 关键指标卡片
 col1, col2, col3 = st.columns(3)
@@ -60,7 +60,7 @@ st.dataframe(filtered_df, use_container_width=True)
 
 # ---------------------- 可视化图表 ----------------------
 # 1. AQI时间趋势图
-st.subheader('<span class="emoji emoji1f4c8"></span> AQI 时间变化趋势')
+st.subheader('📈 AQI 时间变化趋势')
 fig_aqi = px.line(
 filtered_df,
 x="Date",
@@ -72,7 +72,7 @@ labels={"AQI": "空气质量指数(AQI)", "Date": "日期"}
 st.plotly_chart(fig_aqi, use_container_width=True)
 
 # 2. 污染物浓度对比
-st.subheader('<span class="emoji emoji1f3ed"></span> 主要污染物平均浓度对比')
+st.subheader('📈 主要污染物平均浓度对比')
 pollutants = ["PM2.5", "PM10", "SO2", "NO2", "O3"]
 avg_pollutants = filtered_df.groupby("City")[pollutants].mean().reset_index()
 fig_pollutants = px.bar(
