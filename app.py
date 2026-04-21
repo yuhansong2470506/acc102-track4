@@ -10,7 +10,7 @@ st.set_page_config(
 )
 
 # Title and Introduction
-st.title("🌬️ AIir Quality Tool (ACC102 Track4)")
+st.title("🌬️ Air Quality Tool (ACC102 Track4)")
 st.markdown("This is an interactive air quality data analysis tool supporting data preview, trend analysis, and pollutant comparison.")
 
 # ----------------------  Load Data ----------------------
@@ -46,8 +46,8 @@ filtered_df = df[
 (df["Date"] <= pd.to_datetime(selected_dates[1]))
 ]
 
-# ---------------------- Date overview ----------------------
-st.subheader('📈 Date overview')
+# ---------------------- Key Air Quality Metrics ----------------------
+st.subheader('📈 Key Air Quality Metrics')
 
 # Key indicator cards
 col1, col2, col3 = st.columns(3)
@@ -55,11 +55,11 @@ col1.metric("AverageQI", round(filtered_df["AQI"].mean(), 1))
 col2.metric("HighestAQI", filtered_df["AQI"].max())
 col3.metric("LowestAQI", filtered_df["AQI"].min())
 
-# Date overview
+# Key Air Quality Metrics
 st.dataframe(filtered_df, use_container_width=True)
 
 # ---------------------- Visual Chart ----------------------
-# 1. AQITime trend chart
+# 1. AQI Time trend chart
 st.subheader('📈 AQI The trend of time change')
 fig_aqi = px.line(
 filtered_df,
