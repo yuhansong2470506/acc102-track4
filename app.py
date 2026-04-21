@@ -35,7 +35,8 @@ max_date = df["Date"].max()
 selected_dates = st.sidebar.date_input(
     "选择时间范围",
     value=[min_date, max_date],
-    min_value=min_date,<br/>    max_value=max_date
+    min_value=min_date,
+    max_value=max_date
 )
 
 # 应用筛选条件
